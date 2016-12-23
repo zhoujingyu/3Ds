@@ -1,0 +1,23 @@
+{
+  "name": "untitle1",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "~4.13.4",
+    "iconv-lite": "^0.4.13",
+    "jade": "^1.11.0",
+    "mysql": "^2.11.1",
+    "path": "^0.12.7",
+    "socket.io": "^1.5.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^2.3.2",
+    "gulp-sass": "^3.0.0"
+  }
+}
