@@ -1,0 +1,72 @@
+/**
+ * 创建正方体的旋转动画
+ * @param $rotateX1 结束时rotateX的值
+ * @param $rotateY1 结束时rotateY的值
+ */
+@mixin rotateCube($rotateX1,$rotateY1) {
+  @keyframes rotateCube {
+    0% {
+      transform: rotateX(0deg) rotateY(0deg);
+    }
+    100% {
+      transform: rotateX($rotateX1) rotateY($rotateY1);
+    }
+  }
+}
+
+/**
+ * 创建上下左右旋转动画
+ * @param $name 名称
+ * @param $rotateX0 上下旋转的原点
+ * @param $rotateX1 上下旋转的篇幅
+ * @param $rotateY0 左右旋转的原点
+ * @param $rotateY1 上下旋转的篇幅
+ */
+@mixin rotate($name,$rotateX0,$rotateX1,$rotateY0,$rotateY1) {
+  $YStep: $rotateY1/4;
+  @keyframes #{$name} {
+    0% {
+      transform: rotateX($rotateX0) rotateY(-$rotateY0 - $YStep*0);
+    }
+    25% {
+      transform: rotateX(-$rotateX1) rotateY(-$rotateY0 - $YStep*1);
+    }
+    50% {
+      transform: rotateX($rotateX0) rotateY(-$rotateY0 - $YStep*2);
+    }
+    75% {
+      transform: rotateX($rotateX1) rotateY(-$rotateY0 - $YStep*3);
+    }
+    100% {
+      transform: rotateX($rotateX0) rotateY(-$rotateY0 - $YStep*4);
+    }
+  }
+}
+
+/**
+ * 创建动画属性
+ * @param $tDuration 动画持续时间
+ * @param $tTimingFunction 时间曲线
+ * @param $tOrigin 旋转中心
+ * @param $tStyle 变换类型
+ * @param $tProperty 属性获得过渡效果
+ */
+@mixin transform($tDuration,$tTimingFunction,$tOrigin:center center,$tStyle:preserve-3d,$tProperty:all) {
+  transition-duration: $tDuration;
+  transition-timing-function: $tTimingFunction;
+  transform-origin: $tOrigin;
+  transform-style: $tStyle;
+  transition-property: $tProperty;
+}
+
+/**
+ * 创建动画
+ * @param $name 名称
+ * @param $time 时间
+ * @param $timing 曲线
+ * @param $count 播放次数
+ * @param $fill 完成后的动作
+ */
+@mixin animation($name,$time,$timing,$count,$fill:null) {
+  animation: $name $time $timing $count $fill;
+}
