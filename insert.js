@@ -10,8 +10,8 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-var url='public/img/刘飞儿/';
-var sort='刘飞儿';
+var url='public/img/秀人/';
+var sort='秀人';
 
 function getDirs(path){
     fs.readdir(path,function(err,files){

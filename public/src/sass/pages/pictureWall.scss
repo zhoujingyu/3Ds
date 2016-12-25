@@ -1,0 +1,53 @@
+@import "../helpers/reset";
+@import "../components/sortBtn";
+@import "../helpers/mixins";
+
+.pic-box{
+  @include flex;
+  @include alignItemsStart;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+
+  padding: 5px;
+  .pic-padding{
+    @include flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 5px;
+    width: 20%;
+    outline: none;
+    text-decoration: none;
+    .pic-shadow{
+      @include flex;
+      border-radius: 5px;
+      box-shadow: 0 0 6px 1px rgba(0, 0, 0, .3) inset, 5px 5px 3px 1px rgba(0, 0, 0, .5);
+      transform-origin: center center;
+      transition-duration: 500ms;
+      transform-style: preserve-3d;
+      transition-timing-function: cubic-bezier(.1,.4,.9,1.3);
+      &:hover{
+        transform: scale(.95);
+        box-shadow: 0 0 2px rgba(0, 0, 0, .3) inset, 1px 1px 1px rgba(0, 0, 0, .5);
+      }
+      img{
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        z-index: -1;
+      }
+    }
+    .pic-title{
+      @include flex;
+      @include justifyContent;
+      @include alignItemsCenter;
+      padding: 5px 0;
+      color: #f3fcff;
+      font-size: 14px;
+    }
+  }
+}
+
+@import "../layouts/pictureWall";

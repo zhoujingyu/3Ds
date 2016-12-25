@@ -5,15 +5,15 @@ var gulp=require('gulp'),
 
 gulp.task('watchSass',function(){
     gulp.watch('./public/src/sass/**',function(event){
-        console.log(event);
+        console.log('<------------------'+new Date().toLocaleString()+'------------------>');
         gulp.src('./public/src/sass/**')
             .pipe(sass().on('error',sass.logError))
-            .pipe(prefixer({
-                cascade:true,
-                remove:true
-            }))
+            //.pipe(prefixer({
+            //    cascade:true,
+            //    remove:true
+            //}))
             .pipe(cssmin({
-                keepBreaks:false,
+                keepBreaks:true,
                 keepSpecialComments: '*'
             }))
             .pipe(gulp.dest('./public/dist/css/'));

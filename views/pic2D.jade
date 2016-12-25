@@ -1,0 +1,16 @@
+doctype html
+html
+    include ./layout
+    link(rel='stylesheet',href='/dist/css/pages/pic2D.css')
+    link(rel='stylesheet',href='/dist/css/components/sortBtn.css')
+    script(src='/js/lib/LazyLoad.js')
+    script(src='/js/components/SortBtn.js')
+    script(src='/js/pages/pic2D.js')
+    body
+        div#scale.scale
+        include ./components/sortBtn
+        div.pic2D-box
+            - for(var i=1;i<=data.count;i++)
+                div.pic2D-padding
+                    div.pic2D-shadow
+                        img(src="/img/common/loading.png" data-src="#{data.path}#{i}.#{data.type}")

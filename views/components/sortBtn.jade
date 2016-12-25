@@ -1,0 +1,12 @@
+//-
+   分类小按钮
+   @params sortList 分类数组
+   @params sortList[i].sort 具体一项的名称
+script(src='/css/iconfont/iconfont.js')
+div#sortBox.sort-box
+   div#sort.sort
+      svg.icon(aria-hidden="true")
+         use(xlink:href="#icon-biaoqian")
+   - var len=sortList.length
+   - for(var i=0;i<len;i++)
+      div.sort-child(data-key="#{sortList[i].sort}") #{sortList[i].sort}
