@@ -41,24 +41,24 @@ module.exports=function(app){
      */
     app.get('/pictureWall/:id',function(req,res){
 
-        connection.query('select * from image where id='+req.params.id,function(err, rows, fields) {
-            if (err) {
-                console.error(err);
-                result = {};
-            } else {
-                result = rows;
-            }
-            console.log(result);
-            var sortList=[{sort:'一列'},{sort:'两列'},{sort:'三列'},{sort:'四列'}];
-            res.render('pic2D', {
-                title: result[0].title,
-                data: result[0],
-                sortList:sortList
-            });
-        });
-        //res.render('pic3D', {
-        //    title: req.params.id
+        //connection.query('select * from image where id='+req.params.id,function(err, rows, fields) {
+        //    if (err) {
+        //        console.error(err);
+        //        result = {};
+        //    } else {
+        //        result = rows;
+        //    }
+        //    console.log(result);
+        //    var sortList=[{sort:'一列'},{sort:'两列'},{sort:'三列'},{sort:'四列'}];
+        //    res.render('pic2D', {
+        //        title: result[0].title,
+        //        data: result[0],
+        //        sortList:sortList
+        //    });
         //});
+        res.render('pic3D', {
+            title: req.params.id
+        });
     });
     /**
      * 通过图片的id返回json数据
