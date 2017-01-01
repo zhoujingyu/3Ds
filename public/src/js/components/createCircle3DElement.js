@@ -3,7 +3,6 @@ let CreateCircle3DEl = React.createClass({
         return (
             <div className="circle3D" style={this.props.circle3DStyle}>
                 <div className="circle3Ds"  style={this.props.circle3DsStyle}>
-                    <div style={this.props.divStyle}></div>
                     {
                         React.Children.map(this.props.divStyle,function(item,index){
                             let arr=item.split(';');

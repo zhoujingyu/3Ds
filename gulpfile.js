@@ -40,5 +40,6 @@ gulp.task('watchBabel', function () {
 gulp.task('runWebpack', function () {
     webpack(webpackConfig, function (err, stats) {
         console.log(stats.toString());
+        console.log('<------------------webpack:' + new Date().toLocaleString() + '------------------>');
     });
 });

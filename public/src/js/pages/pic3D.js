@@ -10,9 +10,8 @@ $.ajax({
     },
     dataType: 'json',
     success: function (data) {
-        console.log(data[0]);
         var c3D=new Create3D(data[0]);
-        c3D.start()
+        c3D.start();
     },
     error: function () {
         console.log('失败')
