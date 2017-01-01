@@ -4,12 +4,12 @@ var connection=require('./server/connection');
  * @param app
  */
 module.exports=function(app){
-    app.get('/addData',function(req,res){
-        res.render('addData', {
+    app.get('/back/addData',function(req,res){
+        res.render('back/addData', {
             title: "添加数据"
         });
     });
-    app.get('/addPictureData',function(req,res){
+    app.get('/back/addPictureData',function(req,res){
         var path=req.query.path;
         var title=req.query.title;
         var count=req.query.count;

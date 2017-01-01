@@ -27,7 +27,7 @@ function uploadPictureData(){
     }
     $.ajax({
         type:"get",
-        url:"/addPictureData",
+        url:"/back/addPictureData",
         data:{
             path:path,
             title:title,

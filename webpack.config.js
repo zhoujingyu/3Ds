@@ -1,11 +1,12 @@
-const baseSrc='./public/src/js';
+const baseSrc = './public/src/js';
 
 module.exports = {
     watch: true,
     entry: {
-        '/pages/pic3D': baseSrc+'/pages/pic3D.js',
-        '/pages/pic2D': baseSrc+'/pages/pic2D.js',
-        '/pages/pictureWall': baseSrc+'/pages/pictureWall.js'
+        '/pages/pic3D': baseSrc + '/pages/pic3D.js',
+        '/pages/pic2D': baseSrc + '/pages/pic2D.js',
+        '/pages/pictureWall': baseSrc + '/pages/pictureWall.js',
+        '/back/addData': baseSrc + '/back/addData.js'
     },
     output: {
         path: './public/dist/js',

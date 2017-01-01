@@ -1,11 +1,11 @@
 doctype html
 html
-    include ./layout
+    include ../common/layout
     link(rel='stylesheet',href='/dist/css/pages/pic2D.css')
     script(src='/dist/js/pages/pic2D.js')
     body
         div#scale.scale
-        include ./components/sortBtn
+        include ../components/sortBtn
         div.pic2D-box
             - for(var i=1;i<=data.count;i++)
                 div.pic2D-padding

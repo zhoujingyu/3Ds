@@ -1,0 +1,11 @@
+a,body,html,input,li,p,ul{margin:0;padding:0}
+body{font-size:16px;background-image:url(/img/common/bg.png);background-repeat:repeat}
+body,button,input{font-family:"Microsoft YaHei",serif}
+::-webkit-scrollbar{width:0;height:0}
+a,button,input,textarea{-webkit-tap-highlight-color:transparent}
+form{margin:20px;padding:20px;width:400px;color:#fff;background:rgba(93,66,35,.84);border-radius:10px}
+form label{margin-right:8px;height:30px;line-height:30px}
+form input{width:310px;border:none;padding:5px;border-radius:5px;background:rgba(255,255,255,.9)}
+form select{width:100px;padding:5px;border-radius:5px}
+form button{display:block;margin:0 auto;border:none;padding:10px;width:100px;color:#fff;border-radius:5px;background:rgba(134,97,58,.8)}
+form button:hover{cursor:pointer;color:#d8d8d8;background-color:rgba(109,78,46,.8)}

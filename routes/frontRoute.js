@@ -6,15 +6,6 @@ connection.connect();
  */
 module.exports=function(app){
     /**
-     * 首页
-     */
-    //app.get('/',function(req,res){
-    //    //res.send('欢迎来到成长帮手聊天室!');
-    //    res.render('index',{
-    //        title:"成长帮手聊天室首页"
-    //    });
-    //});
-    /**
      * 图片墙首页
      */
     app.get(/^\/(pictureWall)?$/,function(req,res){
@@ -30,7 +21,7 @@ module.exports=function(app){
                 result=rows;
             }
             result.unshift({sort:'*'});
-            res.render('pictureWall',{
+            res.render('pages/pictureWall',{
                 title:'照片墙',
                 sortList:result
             });
@@ -50,13 +41,13 @@ module.exports=function(app){
             }
             console.log(result);
             var sortList=[{sort:'一列'},{sort:'两列'},{sort:'三列'},{sort:'四列'}];
-            res.render('pic2D', {
+            res.render('pages/pic2D', {
                 title: result[0].title,
                 data: result[0],
                 sortList:sortList
             });
         });
-        //res.render('pic3D', {
+        //res.render('pages/pic3D', {
         //    title: req.params.id
         //});
     });
