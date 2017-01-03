@@ -239,6 +239,7 @@
 	                _this.winW = document.documentElement.clientWidth || document.body.clientWidth;
 	                _this.x = document.documentElement.scrollLeft || document.body.scrollLeft;
 	                _this.y = document.documentElement.scrollTop || document.body.scrollTop;
+	                _this.reset();
 	                _this.collectCanLoadImg();
 	            });
 	        }
@@ -256,8 +257,7 @@
 	    }, {
 	        key: 'collectCanLoadImg',
 	        value: function collectCanLoadImg() {
-	            var self = this,
-	                img = document.getElementsByTagName('img'),
+	            var img = document.getElementsByTagName('img'),
 	                x = void 0,
 	                y = void 0,
 	                w = void 0,
@@ -272,41 +272,51 @@
 	                    this.loadImg(img[i]);
 	                } else {
 	                    if (!this.keepOutLiving) {
-	                        (function (img) {
-	                            if (img.clientHeight == 0 && img.getAttribute('src') != img.getAttribute('data-src')) {//图片未下载完，且正在载入的不是默认图
-	                                //img.onload=function(){
-	                                //var height=img.clientHeight,
-	                                //    width=img.clientWidth;
-	                                //img.style.height=height+'px';
-	                                //img.style.width=width+'px';
-	                                //}
-	                            } else {
-	                                //图片已下载完
-	                                var height = img.clientHeight,
-	                                    width = img.clientWidth;
-	                                img.style.height = height + 'px';
-	                                img.style.width = width + 'px';
-	                            }
-	                            img.setAttribute('src', self.loadingImg);
-	                        })(img[i]);
+	                        img[i].getAttribute('src') != this.loadingImg && img[i].setAttribute('src', this.loadingImg);
 	                    }
+	                }
+	            }
+	        }
+	    }, {
+	        key: 'reset',
+	        value: function reset() {
+	            var img = document.getElementsByTagName('img');
+	            var height = void 0,
+	                width = void 0;
+
+	            for (var i = 0; i < img.length; i++) {
+	                img[i].style.height = '';
+	                img[i].style.width = '';
+
+	                if (img[i].getAttribute('src') == this.loadingImg) {
+	                    img[i].style.height = '';
+	                    img[i].style.width = '';
+	                } else {
+	                    height = img[i].clientHeight;
+	                    width = img[i].clientWidth;
+
+	                    img[i].style.height = height + 'px';
+	                    img[i].style.width = width + 'px';
 	                }
 	            }
 	        }
 	    }, {
 	        key: 'loadImg',
 	        value: function loadImg(obj) {
-	            var _this3 = this;
-
 	            var src = obj.getAttribute('src'),
 	                dataSrc = obj.getAttribute('data-src');
+
+	            var loadHandler = function loadHandler() {
+	                obj.removeEventListener('load', 'loadHandler');
+	                var height = obj.clientHeight,
+	                    width = obj.clientWidth;
+	                obj.style.height = height + 'px';
+	                obj.style.width = width + 'px';
+	            };
+
 	            if (src != dataSrc) {
-	                obj.style.height = '';
-	                obj.style.width = '';
 	                obj.setAttribute('src', dataSrc);
-	                obj.onload = function () {
-	                    _this3.collectCanLoadImg();
-	                };
+	                obj.addEventListener('load', loadHandler);
 	            }
 	        }
 	    }, {

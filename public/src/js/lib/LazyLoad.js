@@ -21,6 +21,7 @@ class LazyLoad {
             this.winW = document.documentElement.clientWidth || document.body.clientWidth;
             this.x = document.documentElement.scrollLeft || document.body.scrollLeft;
             this.y = document.documentElement.scrollTop || document.body.scrollTop;
+            this.reset();
             this.collectCanLoadImg();
         });
     }
@@ -34,8 +35,7 @@ class LazyLoad {
     }
 
     collectCanLoadImg() {
-        let self = this,
-            img = document.getElementsByTagName('img'),
+        let img = document.getElementsByTagName('img'),
             x, y, w, h, len = img.length;
         for (var i = 0; i < len; i++) {
             x = this.getX(img[i]);
@@ -49,23 +49,29 @@ class LazyLoad {
                 this.loadImg(img[i]);
             } else {
                 if (!this.keepOutLiving) {
-                    (function (img) {
-                        if (img.clientHeight == 0 && img.getAttribute('src') != img.getAttribute('data-src')) {//图片未下载完，且正在载入的不是默认图
-                            //img.onload=function(){
-                            //var height=img.clientHeight,
-                            //    width=img.clientWidth;
-                            //img.style.height=height+'px';
-                            //img.style.width=width+'px';
-                            //}
-                        } else {//图片已下载完
-                            let height = img.clientHeight,
-                                width = img.clientWidth;
-                            img.style.height = height + 'px';
-                            img.style.width = width + 'px';
-                        }
-                        img.setAttribute('src', self.loadingImg);
-                    })(img[i]);
+                    img[i].getAttribute('src') != this.loadingImg && img[i].setAttribute('src', this.loadingImg);
                 }
+            }
+        }
+    }
+
+    reset() {
+        let img = document.getElementsByTagName('img');
+        let height, width;
+
+        for (let i = 0; i < img.length; i++) {
+            img[i].style.height = '';
+            img[i].style.width = '';
+
+            if (img[i].getAttribute('src') == this.loadingImg) {
+                img[i].style.height = '';
+                img[i].style.width = '';
+            } else {
+                height = img[i].clientHeight;
+                width = img[i].clientWidth;
+
+                img[i].style.height = height + 'px';
+                img[i].style.width = width + 'px';
             }
         }
     }
@@ -73,13 +79,18 @@ class LazyLoad {
     loadImg(obj) {
         let src = obj.getAttribute('src'),
             dataSrc = obj.getAttribute('data-src');
+
+        var loadHandler = function () {
+            obj.removeEventListener('load', 'loadHandler');
+            let height = obj.clientHeight,
+                width = obj.clientWidth;
+            obj.style.height = height + 'px';
+            obj.style.width = width + 'px';
+        };
+
         if (src != dataSrc) {
-            obj.style.height = '';
-            obj.style.width = '';
             obj.setAttribute('src', dataSrc);
-            obj.onload = () => {
-                this.collectCanLoadImg();
-            }
+            obj.addEventListener('load', loadHandler);
         }
     }
 

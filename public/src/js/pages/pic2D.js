@@ -54,6 +54,7 @@ class Pic2D {
      */
     setCols(sort) {
         this.$pic2D.css('width', this.cols[sort]);
+        lazyLoad.reset();
         lazyLoad.collectCanLoadImg();
     }
 }

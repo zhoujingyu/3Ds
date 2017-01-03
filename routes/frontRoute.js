@@ -1,51 +1,109 @@
-var connection=require('./server/connection');
-connection.connect();
+var connection = require('./server/connection');
+connection.connect(err=>{
+    console.warn(err);
+    console.warn("----------链接数据库失败----------");
+});
 /**
  * 前台页面路由
  * @param app
  */
-module.exports=function(app){
+module.exports = (app) => {
     /**
      * 图片墙首页
      */
-    app.get(/^\/(pictureWall)?$/,function(req,res){
-        var sql='select distinct sort from image order by id desc';
+    app.get(/^\/(pictureWall)?$/, (req, res)=> {
+        var sql = 'select distinct sort from image order by id desc';
         var result;
-        
-        connection.query(sql,function(err, rows, fields) {
-            
+
+        connection.query(sql, (err, rows, fields) => {
+
             if (err) {
                 console.error(err);
-                result={};
-            }else{
-                result=rows;
+                result = [];
+            } else {
+                result = rows;
             }
-            result.unshift({sort:'*'});
-            res.render('pages/pictureWall',{
-                title:'照片墙',
-                sortList:result
+
+            result.unshift({sort: '*'});
+            res.render('pages/pictureWall', {
+                title: '照片墙',
+                sortList: result
             });
+        }).on('error', (err) => {
+            console.warn("----------首页查询数据库失败----------");
+        });
+    });
+    /**
+     * 图片墙首页ajax获取图片
+     */
+    app.get('/getPicture', (req, res) => {
+        var sort = (req.query.sort !== undefined && req.query.sort != '*') ? ' where sort="' + req.query.sort + '"' : '',
+            pageNo = (req.query.pageNo !== undefined) ? req.query.pageNo : 1,
+            pageSize = (req.query.pageSize !== undefined) ? req.query.pageSize : 20;
+        var start = pageSize * (pageNo - 1);
+        var sql = 'select * from image' + sort + ' order by id desc limit ' + start + ',' + pageSize;
+        //sql='select * from image where sort="family" order by id desc';
+        var result;
+        console.log(sql);
+
+        connection.query(sql, (err, rows, fields) => {
+
+            if (err) {
+                console.error(err);
+                //连接数据库失败时使用临时数据
+                result = [{
+                    id:1,
+                    type: 'jpg',
+                    count: 98,
+                    path: '/img/car/',
+                    title: '超跑'
+                }];
+            } else {
+                result = rows;
+            }
+            res.send(result);
+        }).on('error', err => {
+            console.warn(err);
+            console.warn("----------getPicture:查询数据库失败----------");
+
+            //result = [{
+            //    id:1,
+            //    type: 'jpg',
+            //    path: '/img/car/',
+            //    title: '超跑'
+            //}];
+            //res.send(result);
         });
     });
     /**
      * 图片墙内页
      */
-    app.get('/pictureWall/:id',function(req,res){
+    app.get('/pictureWall/:id', (req, res) => {
 
-        connection.query('select * from image where id='+req.params.id,function(err, rows, fields) {
+        connection.query('select * from image where id=' + req.params.id, (err, rows, fields) => {
+
+            var sortList = [{sort: '一列'}, {sort: '两列'}, {sort: '三列'}, {sort: '四列'}];
+
             if (err) {
                 console.error(err);
-                result = {};
+                result = [{
+                    title: '超跑',
+                    count:98,
+                    path:'/img/car/',
+                    type:'jpg'
+                }];
             } else {
                 result = rows;
             }
             console.log(result);
-            var sortList=[{sort:'一列'},{sort:'两列'},{sort:'三列'},{sort:'四列'}];
+
             res.render('pages/pic2D', {
                 title: result[0].title,
                 data: result[0],
-                sortList:sortList
+                sortList: sortList
             });
+        }).on('error', (err) => {
+            console.warn("----------内页查询数据库失败----------");
         });
         //res.render('pages/pic3D', {
         //    title: req.params.id
@@ -54,9 +112,9 @@ module.exports=function(app){
     /**
      * 通过图片的id返回json数据
      */
-    app.get('/getPicById',function(req,res){
+    app.get('/getPicById', (req, res) => {
 
-        connection.query('select * from image where id='+req.query.id,function(err, rows, fields) {
+        connection.query('select * from image where id=' + req.query.id, (err, rows, fields) => {
             if (err) {
                 console.error(err);
                 result = {};
@@ -67,47 +125,23 @@ module.exports=function(app){
         });
     });
     /**
-     * 图片墙首页ajax获取图片
-     */
-    app.get('/getPicture',function(req,res){
-        var sort=(req.query.sort!==undefined&&req.query.sort!='*')?' where sort="'+req.query.sort+'"':'',
-            pageNo=(req.query.pageNo!==undefined)?req.query.pageNo:1,
-            pageSize=(req.query.pageSize!==undefined)?req.query.pageSize:20;
-        var start=pageSize*(pageNo-1);
-        var sql='select * from image'+sort+' order by id desc limit '+start+','+pageSize;
-        //sql='select * from image where sort="family" order by id desc';
-        var result;
-        console.log(sql);
-        
-        connection.query(sql,function(err, rows, fields) {
-
-            if (err) {
-                console.error(err);
-                result={};
-            }else{
-                result=rows;
-            }
-            res.send(result);
-        });
-    });
-    /**
      * ajax,根据sort分类获取图片
      */
-    app.get('/getPicBySort',function(req,res){
-        var sort=(req.query.sort!==undefined)?req.query.pageNo:'*',
-            pageNo=(req.query.pageNo!==undefined)?req.query.pageNo:1,
-            pageSize=(req.query.pageSize!==undefined)?req.query.pageSize:20;
-        var start=1+(pageSize*(pageNo-1));
-        var sql='select * from image where sort="'+sort+'" order by id desc limit '+start+','+pageSize;
+    app.get('/getPicBySort', (req, res) => {
+        var sort = (req.query.sort !== undefined) ? req.query.pageNo : '*',
+            pageNo = (req.query.pageNo !== undefined) ? req.query.pageNo : 1,
+            pageSize = (req.query.pageSize !== undefined) ? req.query.pageSize : 20;
+        var start = 1 + (pageSize * (pageNo - 1));
+        var sql = 'select * from image where sort="' + sort + '" order by id desc limit ' + start + ',' + pageSize;
         var result;
 
-        connection.query(sql,function(err, rows, fields) {
+        connection.query(sql, (err, rows, fields) => {
 
             if (err) {
                 console.error(err);
-                result={};
-            }else{
-                result=rows;
+                result = {};
+            } else {
+                result = rows;
             }
             res.send(result);
         });
