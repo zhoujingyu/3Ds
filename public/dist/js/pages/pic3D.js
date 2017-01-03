@@ -355,16 +355,6 @@
 	}();
 
 	module.exports = Create3D;
-	//
-
-	//Create3D.prototype.createCube = function (sides, width, path, start) {
-
-	//};
-	//
-
-	//Create3D.prototype.createBook = function (sides, width, path, index) {
-
-	//};
 
 /***/ }
 /******/ ]);
