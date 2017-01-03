@@ -134,7 +134,7 @@
 	    }, {
 	        key: "buildList",
 	        value: function buildList(data) {
-	            return '<a href="/pictureWall/' + data.id + '" class="pic-padding">' + '<div class="pic-shadow">' + '<img src="/img/common/loading.png" data-src="' + encodeURI(data.path) + '1.' + data.type + '">' + '</div>' + '<div class="pic-title">' + data.title + '</div>' + '</a>';
+	            return '<a href="/pictureWall/' + data.id + '" class="pic-padding">' + '<div class="pic-shadow">' + '<img src="/img/common/loading.png" data-src="' + encodeURI(data.path.replace(/\+/g, '-')) + '1.' + data.type + '">' + '</div>' + '<div class="pic-title">' + data.title + '</div>' + '</a>';
 	        }
 
 	        /**
@@ -184,20 +184,20 @@
 	        keepOutLiving: false
 	    });
 
+	    var pictureWall = new PictureWall();
+	    pictureWall.getNextPage();
+
 	    new _SortBtn2.default({
 	        action: function action() {
 	            pictureWall.currentPage = 0;
 	            pictureWall.$picBox.html('');
-	            sort = pictureWall.sort;
-	            localStorage.setItem('pictureWallSort', sort);
+	            pictureWall.sort = this.sort;
+	            localStorage.setItem('pictureWallSort', this.sort);
 	            pictureWall.getNextPage();
 	        }
 	    });
 
 	    util.preventLongTap();
-
-	    var pictureWall = new PictureWall();
-	    pictureWall.getNextPage();
 	});
 
 /***/ },

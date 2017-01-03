@@ -10,4 +10,4 @@ html
             - for(var i=1;i<=data.count;i++)
                 div.pic2D-padding
                     div.pic2D-shadow
-                        img(src="/img/common/loading.png" data-src="#{data.path}#{i}.#{data.type}")
+                        img(src="/img/common/loading.png" data-src="#{data.path.replace(/\+/g,'-')}#{i}.#{data.type}")

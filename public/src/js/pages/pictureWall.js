@@ -62,7 +62,7 @@ class PictureWall {
     buildList(data) {
         return '<a href="/pictureWall/' + data.id + '" class="pic-padding">' +
             '<div class="pic-shadow">' +
-            '<img src="/img/common/loading.png" data-src="' + encodeURI(data.path) + '1.' + data.type + '">' +
+            '<img src="/img/common/loading.png" data-src="' + encodeURI(data.path.replace(/\+/g,'-')) + '1.' + data.type + '">' +
             '</div>' +
             '<div class="pic-title">' + data.title + '</div>' +
             '</a>';
@@ -76,7 +76,7 @@ class PictureWall {
         this.dh = $(document).height();
     }
 
-    _resize(){
+    _resize() {
         window.addEventListener('resize', () => {
             this.resize();
         });
@@ -85,7 +85,7 @@ class PictureWall {
     /**
      * 屏幕滚动事件，将到底时加载下一页
      */
-    _scroll(){
+    _scroll() {
         window.addEventListener('scroll', () => {
             this.st = document.documentElement.scrollTop || document.body.scrollTop;
             if (this.st + this.wh + 10 >= this.dh && !this.loading) {
@@ -100,19 +100,18 @@ $(function () {
         keepOutLiving: false
     });
 
+    let pictureWall = new PictureWall();
+    pictureWall.getNextPage();
+
     new SortBtn({
-        action: () => {
+        action: function () {
             pictureWall.currentPage = 0;
             pictureWall.$picBox.html('');
-            sort = pictureWall.sort;
-            localStorage.setItem('pictureWallSort', sort);
+            pictureWall.sort = this.sort;
+            localStorage.setItem('pictureWallSort', this.sort);
             pictureWall.getNextPage();
         }
     });
 
     util.preventLongTap();
-
-    let pictureWall = new PictureWall();
-    pictureWall.getNextPage();
-
 });

@@ -149,6 +149,14 @@
 	            pic2D.setCols(this.sort);
 	        }
 	    });
+
+	    //http://120.52.73.43/adultvideo.science/media/videos/iphone/one_#num.mp4
+	    //var url='http://120.52.73.43/adultvideo.science/media/videos/iphone/one_#num.mp4';
+	    //var str='';
+	    //for(var i=1;i<=1000;i++){
+	    //    str+=url.replace('#num',i);
+	    //    str+='\n';
+	    //}
 	});
 
 /***/ },
