@@ -13,8 +13,10 @@ app.set('view engine', 'jade');
 routeF(app);
 routeB(app);
 
-var server=app.listen(3000,function(){
-   console.log('server running at 127.0.0.1:3000');
+var port=4000;
+
+var server=app.listen(port,function(){
+   console.log('server running at 127.0.0.1:'+port);
 });
 
 require('./routes/server/mySocket')(server);

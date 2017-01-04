@@ -61,7 +61,8 @@ class PictureWall {
      */
     buildList(data) {
         return '<a href="/pictureWall/' + data.id + '" class="pic-padding">' +
-            '<div class="pic-shadow">' +
+            '<div class="pic-si">' +
+            '<div class="pic-shadow"></div>' +
             '<img src="/img/common/loading.png" data-src="' + encodeURI(data.path.replace(/\+/g,'-')) + '1.' + data.type + '">' +
             '</div>' +
             '<div class="pic-title">' + data.title + '</div>' +

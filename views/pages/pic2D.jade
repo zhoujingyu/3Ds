@@ -9,5 +9,6 @@ html
         div.pic2D-box
             - for(var i=1;i<=data.count;i++)
                 div.pic2D-padding
-                    div.pic2D-shadow
+                    div.pic2D-si
+                        div.pic2D-shadow
                         img(src="/img/common/loading.png" data-src="#{data.path.replace(/\+/g,'-')}#{i}.#{data.type}")
