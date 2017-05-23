@@ -39,7 +39,7 @@ class SortBtn {
      * 点击分类详细项
      */
     clickSortChild() {
-        let self=this;
+        let self = this;
         this.$sortChild.on('click', function () {
             let key = $(this).attr('data-key');
             if (self.sort != key) {
@@ -66,16 +66,29 @@ class SortBtn {
      * 显示分类
      */
     showSort() {
+        this.$sortBox.css({
+            'width': '100%',
+            'height': '100%',
+            'background-color': 'rgba(0, 0, 0, 0.6)'
+        });
+
         this.sortListShow = true;
         this.$sortBtn.addClass('hover');
-        this._startTimeout();
+        //this._startTimeout();
         for (let i = 0; i < this.sortLen; i++) {
             let s = this.getXY(this.sortLen, i + 1, 4, 2, 70),
                 k = this.getRGB();
+            //$(this.$sortChild[i]).css({
+            //    'opacity': '1',
+            //    'transform': 'translate(' + s.x + 'px,' + (-s.y) + 'px)',
+            //    '-webkit-transform': 'translate(' + s.x + 'px,' + (-s.y) + 'px)',
+            //    'background-color': 'rgba(' + k.r + ',' + k.g + ',' + k.b + ',.8)'
+            //});
             $(this.$sortChild[i]).css({
-                'opacity': '1',
-                'transform': 'translate(' + s.x + 'px,' + (-s.y) + 'px)',
-                '-webkit-transform': 'translate(' + s.x + 'px,' + (-s.y) + 'px)',
+                //'opacity': '1',
+                //'transform': 'translate(' + s.x + 'px,' + (-s.y) + 'px)',
+                //'-webkit-transform': 'translate(' + s.x + 'px,' + (-s.y) + 'px)',
+                'display': 'block',
                 'background-color': 'rgba(' + k.r + ',' + k.g + ',' + k.b + ',.8)'
             });
         }
@@ -85,12 +98,19 @@ class SortBtn {
      * 隐藏分类
      */
     hideSort() {
+        this.$sortBox.css({
+            'width': '',
+            'height': '',
+            'background-color': ''
+        });
+
         this.sortListShow = false;
         clearTimeout(this._timeoutId);
         this.$sortBtn.removeClass('hover');
-        for (let i = 0; i < this.sortLen; i++) {
-            $(this.$sortChild[i]).attr('style', 'display:\'none\'');
-        }
+        //for (let i = 0; i < this.sortLen; i++) {
+        //    $(this.$sortChild[i]).attr('style', 'display:\'none\'');
+        //}
+        this.$sortChild.hide();
     }
 
     /**

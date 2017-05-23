@@ -63,7 +63,7 @@ class PictureWall {
         return '<a href="/pictureWall/' + data.id + '" class="pic-padding">' +
             '<div class="pic-si">' +
             '<div class="pic-shadow"></div>' +
-            '<img src="/img/common/loading.png" data-src="' + encodeURI(data.path.replace(/\+/g,'-')) + '1.' + data.type + '">' +
+            '<img src="/img/common/loading.png" data-src="' + data.path.replace(/\+/g,'-') + '1.' + data.type + '">' +
             '</div>' +
             '<div class="pic-title">' + data.title + '</div>' +
             '</a>';
@@ -98,7 +98,7 @@ class PictureWall {
 $(function () {
 
     lazyLoad = new LazyLoad({
-        keepOutLiving: false
+        keepOutLiving: true
     });
 
     let pictureWall = new PictureWall();

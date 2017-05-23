@@ -1,19 +1,21 @@
 @charset "UTF-8";
+.pic-box,.sort-box{display:-webkit-box;display:-webkit-flex}
 .sort-box .sort,a,button,input,textarea{-webkit-tap-highlight-color:transparent}
-.sort-box .sort,.sort-box .sort-child{line-height:50px;text-align:center;border-radius:50%}
 a,body,html,input,li,p,ul{margin:0;padding:0}
+.sort-box .sort,.sort-box .sort-child{margin:5px;line-height:50px;text-align:center;border-radius:50%}
 body{font-size:16px;background-image:url(/img/common/bg4.png);background-size:100px auto;background-repeat:repeat}
 body,button,input{font-family:"Microsoft YaHei",serif}
 ::-webkit-scrollbar{width:0;height:0}
-.sort-box{position:fixed;top:40%;width:50px;height:50px}
-.sort-box .sort{position:relative;width:50px;height:50px;opacity:.1;z-index:3;transition-duration:.3s}
+.sort-box .sort,.sort-box .sort-child{width:50px;height:50px;position:relative}
+.sort-box{display:flex;-webkit-justify-content:space-between;justify-content:space-between;-webkit-flex-wrap:wrap;flex-wrap:wrap;position:fixed;top:0;left:0;overflow-y:scroll;z-index:10}
+.sort-box .sort{opacity:.2;z-index:3;transition-duration:.3s}
 .sort-box .sort:hover{cursor:pointer}
 .sort-box .sort.hover{opacity:.8;transform:scale(1.1);-ms-transform:scale(1.1);-moz-transform:scale(1.1);-webkit-transform:scale(1.1);-o-transform:scale(1.1);box-shadow:2px 2px 5px rgba(49,36,17,.78)}
 .sort-box .sort .icon{width:50px;height:50px;vertical-align:top;fill:currentColor;overflow:hidden;pointer-events:none}
-.sort-box .sort-child{position:absolute;top:0;left:0;width:50px;height:50px;font-size:14px;overflow:hidden;color:#f3f3f3;background-color:rgba(169,115,17,.78);box-shadow:2px 2px 5px rgba(49,36,17,.78);opacity:0;z-index:2;transform-origin:center center;transition-duration:.5s;transition-timing-function:ease-in-out}
+.sort-box .sort-child{display:none;font-size:14px;overflow:hidden;color:#f3f3f3;background-color:rgba(169,115,17,.78);box-shadow:2px 2px 5px rgba(49,36,17,.78);z-index:2;transform-origin:center center;transition-duration:.5s;transition-timing-function:ease-in-out}
 .pic-box .pic-padding .pic-si,.pic-box .pic-padding .pic-si .pic-shadow{transition-duration:.5s;transition-timing-function:cubic-bezier(.1,.4,.9,1.3);border-radius:5px}
 .sort-box .sort-child:hover{cursor:pointer;background-color:rgba(99,66,7,.78);color:#c3bbbb;box-shadow:2px 2px 8px rgba(16,10,2,.87)}
-.pic-box{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-align:start;-webkit-align-items:flex-start;align-items:flex-start;-webkit-flex-wrap:wrap;flex-wrap:wrap;padding:5px}
+.pic-box{display:flex;-webkit-box-align:start;-webkit-align-items:flex-start;align-items:flex-start;-webkit-flex-wrap:wrap;flex-wrap:wrap;padding:5px}
 .pic-box .pic-padding{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;flex-direction:column;box-sizing:border-box;padding:5px;width:20%;outline:0;text-decoration:none}
 .pic-box .pic-padding .pic-si{display:-webkit-box;display:-webkit-flex;display:flex;position:relative;transform-origin:center center;transform-style:preserve-3d}
 .pic-box .pic-padding .pic-si:hover{transform:scale(.95)}

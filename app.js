@@ -13,7 +13,7 @@ app.set('view engine', 'jade');
 routeF(app);
 routeB(app);
 
-var port=4000;
+var port=80;
 
 var server=app.listen(port,function(){
    console.log('server running at 127.0.0.1:'+port);

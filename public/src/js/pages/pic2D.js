@@ -61,7 +61,7 @@ class Pic2D {
 
 $(function () {
     lazyLoad = new LazyLoad({
-        keepOutLiving: false
+        keepOutLiving: true
     });
 
     let pic2D=new Pic2D();

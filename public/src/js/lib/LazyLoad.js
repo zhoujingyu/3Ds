@@ -77,8 +77,8 @@ class LazyLoad {
     }
 
     loadImg(obj) {
-        let src = obj.getAttribute('src'),
-            dataSrc = obj.getAttribute('data-src');
+        let src = encodeURI(obj.getAttribute('src')),
+            dataSrc = encodeURI(obj.getAttribute('data-src'));
 
         var loadHandler = function () {
             obj.removeEventListener('load', 'loadHandler');

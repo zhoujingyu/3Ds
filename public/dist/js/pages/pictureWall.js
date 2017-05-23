@@ -134,7 +134,7 @@
 	    }, {
 	        key: "buildList",
 	        value: function buildList(data) {
-	            return '<a href="/pictureWall/' + data.id + '" class="pic-padding">' + '<div class="pic-si">' + '<div class="pic-shadow"></div>' + '<img src="/img/common/loading.png" data-src="' + encodeURI(data.path.replace(/\+/g, '-')) + '1.' + data.type + '">' + '</div>' + '<div class="pic-title">' + data.title + '</div>' + '</a>';
+	            return '<a href="/pictureWall/' + data.id + '" class="pic-padding">' + '<div class="pic-si">' + '<div class="pic-shadow"></div>' + '<img src="/img/common/loading.png" data-src="' + data.path.replace(/\+/g, '-') + '1.' + data.type + '">' + '</div>' + '<div class="pic-title">' + data.title + '</div>' + '</a>';
 	        }
 
 	        /**
@@ -181,7 +181,7 @@
 	$(function () {
 
 	    lazyLoad = new _LazyLoad2.default({
-	        keepOutLiving: false
+	        keepOutLiving: true
 	    });
 
 	    var pictureWall = new PictureWall();
@@ -303,8 +303,8 @@
 	    }, {
 	        key: 'loadImg',
 	        value: function loadImg(obj) {
-	            var src = obj.getAttribute('src'),
-	                dataSrc = obj.getAttribute('data-src');
+	            var src = encodeURI(obj.getAttribute('src')),
+	                dataSrc = encodeURI(obj.getAttribute('data-src'));
 
 	            var loadHandler = function loadHandler() {
 	                obj.removeEventListener('load', 'loadHandler');
@@ -437,16 +437,29 @@
 	    }, {
 	        key: 'showSort',
 	        value: function showSort() {
+	            this.$sortBox.css({
+	                'width': '100%',
+	                'height': '100%',
+	                'background-color': 'rgba(0, 0, 0, 0.6)'
+	            });
+
 	            this.sortListShow = true;
 	            this.$sortBtn.addClass('hover');
-	            this._startTimeout();
+	            //this._startTimeout();
 	            for (var i = 0; i < this.sortLen; i++) {
 	                var s = this.getXY(this.sortLen, i + 1, 4, 2, 70),
 	                    k = this.getRGB();
+	                //$(this.$sortChild[i]).css({
+	                //    'opacity': '1',
+	                //    'transform': 'translate(' + s.x + 'px,' + (-s.y) + 'px)',
+	                //    '-webkit-transform': 'translate(' + s.x + 'px,' + (-s.y) + 'px)',
+	                //    'background-color': 'rgba(' + k.r + ',' + k.g + ',' + k.b + ',.8)'
+	                //});
 	                $(this.$sortChild[i]).css({
-	                    'opacity': '1',
-	                    'transform': 'translate(' + s.x + 'px,' + -s.y + 'px)',
-	                    '-webkit-transform': 'translate(' + s.x + 'px,' + -s.y + 'px)',
+	                    //'opacity': '1',
+	                    //'transform': 'translate(' + s.x + 'px,' + (-s.y) + 'px)',
+	                    //'-webkit-transform': 'translate(' + s.x + 'px,' + (-s.y) + 'px)',
+	                    'display': 'block',
 	                    'background-color': 'rgba(' + k.r + ',' + k.g + ',' + k.b + ',.8)'
 	                });
 	            }
@@ -459,12 +472,19 @@
 	    }, {
 	        key: 'hideSort',
 	        value: function hideSort() {
+	            this.$sortBox.css({
+	                'width': '',
+	                'height': '',
+	                'background-color': ''
+	            });
+
 	            this.sortListShow = false;
 	            clearTimeout(this._timeoutId);
 	            this.$sortBtn.removeClass('hover');
-	            for (var i = 0; i < this.sortLen; i++) {
-	                $(this.$sortChild[i]).attr('style', 'display:\'none\'');
-	            }
+	            //for (let i = 0; i < this.sortLen; i++) {
+	            //    $(this.$sortChild[i]).attr('style', 'display:\'none\'');
+	            //}
+	            this.$sortChild.hide();
 	        }
 
 	        /**
