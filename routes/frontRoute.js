@@ -1,17 +1,23 @@
-var connection = require('./server/connection');
-connection.connect(err=>{
-    console.warn(err);
-    console.warn("----------链接数据库失败----------");
-});
+const connection = require('./server/connection');
+
 /**
  * 前台页面路由
  * @param app
  */
 module.exports = (app) => {
     /**
+     * 首页
+     */
+    app.get('/', (req, res)=> {
+        res.render('pages/index', {
+            title: '首页'
+        })
+    });
+
+    /**
      * 图片墙首页
      */
-    app.get(/^\/(pictureWall)?$/, (req, res)=> {
+    app.get('/pictureWall', (req, res)=> {
         var sql = 'select distinct sort from image order by id desc';
         var result;
 
@@ -52,7 +58,7 @@ module.exports = (app) => {
                 console.error(err);
                 //连接数据库失败时使用临时数据
                 result = [{
-                    id:1,
+                    id: 1,
                     type: 'jpg',
                     count: 98,
                     path: '/img/car/',
@@ -88,9 +94,9 @@ module.exports = (app) => {
                 console.error(err);
                 result = [{
                     title: '超跑',
-                    count:98,
-                    path:'/img/car/',
-                    type:'jpg'
+                    count: 98,
+                    path: '/img/car/',
+                    type: 'jpg'
                 }];
             } else {
                 result = rows;

@@ -1,5 +1,5 @@
 a,body,html,input,li,p,ul{margin:0;padding:0}
-body{font-size:16px;background-image:url(/img/common/bg4.png);background-size:100px auto;background-repeat:repeat}
+body{margin:0 auto;width:1000px;font-size:16px;background-size:100px auto;background-repeat:repeat;background-color:rgba(55,173,199,.82);overflow-x:hidden}
 body,button,input{font-family:"Microsoft YaHei",serif}
 ::-webkit-scrollbar{width:0;height:0}
 a,button,input,textarea{-webkit-tap-highlight-color:transparent}

@@ -2,8 +2,8 @@
 .pic-box,.sort-box{display:-webkit-box;display:-webkit-flex}
 .sort-box .sort,a,button,input,textarea{-webkit-tap-highlight-color:transparent}
 a,body,html,input,li,p,ul{margin:0;padding:0}
+body{margin:0 auto;width:1000px;font-size:16px;background-size:100px auto;background-repeat:repeat;background-color:rgba(55,173,199,.82);overflow-x:hidden}
 .sort-box .sort,.sort-box .sort-child{margin:5px;line-height:50px;text-align:center;border-radius:50%}
-body{font-size:16px;background-image:url(/img/common/bg4.png);background-size:100px auto;background-repeat:repeat}
 body,button,input{font-family:"Microsoft YaHei",serif}
 ::-webkit-scrollbar{width:0;height:0}
 .sort-box .sort,.sort-box .sort-child{width:50px;height:50px;position:relative}

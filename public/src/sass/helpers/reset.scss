@@ -3,10 +3,14 @@ html,body,p,a,ul,li,input{
   padding: 0;
 }
 body{
+  margin: 0 auto;
+  width: 1000px;
   font-size: 16px;
-  background-image: url(/img/common/bg4.png);
+  //background-image: url(/img/common/bg4.png);
   background-size: 100px auto;
   background-repeat: repeat;
+  background-color: rgba(55, 173, 199, 0.82);
+  overflow-x: hidden;
 }
 body,input,button{
   font-family: "Microsoft YaHei",serif;
