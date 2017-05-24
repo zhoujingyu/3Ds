@@ -1,1 +1,9 @@
-@media screen and (max-width:1400px){.pic-box .pic-padding{width:25%}}@media screen and (max-width:1000px){.pic-box .pic-padding{width:33.33%}}@media screen and (max-width:750px){.pic-box .pic-padding{width:50%}}@media screen and (max-width:500px){.pic-box{padding:2px}.pic-box .pic-padding{padding:2px;width:100%}}
+@media screen and (max-width:1400px){.pic-box .pic-padding{width:25%}
+}
+@media screen and (max-width:1000px){.pic-box .pic-padding{width:33.33%}
+}
+@media screen and (max-width:750px){.pic-box .pic-padding{width:50%}
+}
+@media screen and (max-width:500px){.pic-box{padding:2px}
+.pic-box .pic-padding{padding:2px;width:100%}
+}

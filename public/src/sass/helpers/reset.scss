@@ -31,7 +31,7 @@ body {
 body, input, button {
   //font-family: '隶书', 'Microsoft YaHei', serif;
   //font-family: '华文彩云', 'Microsoft YaHei', serif;
-  //font-family: '方正兰亭超细黑简体', 'Microsoft YaHei', serif;
+  //font-family: '方正兰亭超细黑简�?', 'Microsoft YaHei', serif;
   //font-family: '方正舒体', 'Microsoft YaHei', serif;
   font-family: '华文楷体', '宋体', 'Microsoft YaHei', serif;
 
@@ -45,9 +45,29 @@ body, input, button {
 a, button, input, textarea {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   //-webkit-user-modify:read-write-plaintext-only;
+  color: #333;
+  text-decoration: none;
+}
+
+@media all and (min-width: $thirdBodyWidth + 1px) {
+  a:hover {
+    color: $primary-clr;
+    text-decoration: underline;
+  }
+}
+
+a:visited {
+  color: #ccc;
 }
 
 ul {
   -webkit-text-size-adjust: none;
   list-style: none;
+}
+
+ol {
+  margin: 0;
+  padding-left: 16px;
+  list-style-type: cjk-heavenly-stem;
+  list-style-position: inside;
 }

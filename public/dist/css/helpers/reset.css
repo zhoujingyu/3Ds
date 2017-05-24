@@ -1,1 +1,17 @@
-@charset "UTF-8";a,body,html,input,li,p,ul{margin:0;padding:0}body{margin:0 auto;width:1000px;font-size:16px;background-size:100px auto;background-repeat:repeat;background-color:#8dceed;overflow-x:hidden}@media all and (max-width:1000px){body{width:800px}}@media all and (max-width:800px){body{width:500px}}@media all and (max-width:500px){body{max-width:100%}}body,button,input{font-family:'华文楷体','宋体','Microsoft YaHei',serif}::-webkit-scrollbar{width:0;height:0}a,button,input,textarea{-webkit-tap-highlight-color:transparent}ul{-webkit-text-size-adjust:none;list-style:none}
+@charset "UTF-8";
+a,body,html,input,li,p,ul{margin:0;padding:0}
+body{margin:0 auto;width:1000px;font-size:16px;background-size:100px auto;background-repeat:repeat;background-color:#8dceed;overflow-x:hidden}
+@media all and (max-width:1000px){body{width:800px}
+}
+@media all and (max-width:800px){body{width:500px}
+}
+@media all and (max-width:500px){body{max-width:100%}
+}
+body,button,input{font-family:'华文楷体','宋体','Microsoft YaHei',serif}
+::-webkit-scrollbar{width:0;height:0}
+a,button,input,textarea{-webkit-tap-highlight-color:transparent;color:#333;text-decoration:none}
+@media all and (min-width:501px){a:hover{color:#36898C;text-decoration:underline}
+}
+a:visited{color:#ccc}
+ul{-webkit-text-size-adjust:none;list-style:none}
+ol{margin:0;padding-left:16px;list-style-type:cjk-heavenly-stem;list-style-position:inside}

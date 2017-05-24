@@ -1,5 +1,5 @@
 doctype html
-html
+html(lang="zh-cn")
     include ../common/layout
     link(rel='stylesheet',href='/dist/css/pages/index.css')
     body
@@ -11,15 +11,41 @@ html
                 div.line
             nav
                 ul.list
-                    li 子菜单
+                    li 首页
+                    li
+                        a(href='/note',target='_blank',title='笔记') 笔记
+                    li
+                        a(href='/pictureWall',target='_blank',title='图片') 图片
+                    li 更多
                         i.iconfont.icon-gengduo
                         ul.second
                             li se-1se-1se-1se-1
                             li se-2
                             li se-3
                             li se-4
-                    li
-                        a(href='/note',target='_blank',title='笔记') 笔记
-                    li 第三
-                    li 更多
-                        i.iconfont.icon-gengduo
+        main
+            div.card
+                div.cell
+                    div.header 前端笔记
+                    div.body
+                        ol.note
+                            li
+                                a(href='/note?title=flex',target='_blank') flex
+                            li
+                                a(href='/note?title=defineProto',target='_blank') defineProto
+                            li
+                                a(href='/note?title=es6',target='_blank') es6
+                            li
+                                a(href='/note?title=amd%20cmd%20commonJs',target='_blank') amd cmd commonJs
+                            li
+                                a(href='/note?title=node',target='_blank') node
+                    div.footer
+                        a.more(href='/note',target='_blank') 查看所有
+                div.cell
+                div.cell
+                div.cell
+                div.cell
+                div.cell
+                div.cell
+
+
