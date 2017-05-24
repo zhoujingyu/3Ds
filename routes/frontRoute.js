@@ -8,7 +8,7 @@ module.exports = (app) => {
     /**
      * 首页
      */
-    app.get('/', (req, res)=> {
+    app.get('/', (req, res, next)=> {
         res.render('pages/index', {
             title: '首页'
         })
@@ -17,7 +17,7 @@ module.exports = (app) => {
     /**
      * 图片墙首页
      */
-    app.get('/pictureWall', (req, res)=> {
+    app.get('/pictureWall', (req, res, next)=> {
         var sql = 'select distinct sort from image order by id desc';
         var result;
 
@@ -42,7 +42,7 @@ module.exports = (app) => {
     /**
      * 图片墙首页ajax获取图片
      */
-    app.get('/getPicture', (req, res) => {
+    app.get('/getPicture', (req, res, next) => {
         var sort = (req.query.sort !== undefined && req.query.sort != '*') ? ' where sort="' + req.query.sort + '"' : '',
             pageNo = (req.query.pageNo !== undefined) ? req.query.pageNo : 1,
             pageSize = (req.query.pageSize !== undefined) ? req.query.pageSize : 20;
@@ -84,7 +84,7 @@ module.exports = (app) => {
     /**
      * 图片墙内页
      */
-    app.get('/pictureWall/:id', (req, res) => {
+    app.get('/pictureWall/:id', (req, res, next) => {
 
         connection.query('select * from image where id=' + req.params.id, (err, rows, fields) => {
 
@@ -118,7 +118,7 @@ module.exports = (app) => {
     /**
      * 通过图片的id返回json数据
      */
-    app.get('/getPicById', (req, res) => {
+    app.get('/getPicById', (req, res, next) => {
 
         connection.query('select * from image where id=' + req.query.id, (err, rows, fields) => {
             if (err) {
@@ -133,7 +133,7 @@ module.exports = (app) => {
     /**
      * ajax,根据sort分类获取图片
      */
-    app.get('/getPicBySort', (req, res) => {
+    app.get('/getPicBySort', (req, res, next) => {
         var sort = (req.query.sort !== undefined) ? req.query.pageNo : '*',
             pageNo = (req.query.pageNo !== undefined) ? req.query.pageNo : 1,
             pageSize = (req.query.pageSize !== undefined) ? req.query.pageSize : 20;

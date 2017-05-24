@@ -1,2 +1,6 @@
-$picShadow:0 0 10px rgba(0,0,0,.7) inset,3px 3px 10px rgba(255,255,255,.3);
-$picHoverShadow:0 0 2px rgba(0,0,0,.2) inset, 1px 1px 1px rgba(255,255,255, .5);
+$picShadow: 0 0 10px rgba(0, 0, 0, .7) inset, 3px 3px 10px rgba(255, 255, 255, .3);
+$picHoverShadow: 0 0 2px rgba(0, 0, 0, .2) inset, 1px 1px 1px rgba(255, 255, 255, .5);
+
+$firstBodyWidth: 1000px !global;//body宽度自适应的第一梯度
+$secondBodyWidth: 800px !global;//body宽度自适应的第二梯度
+$thirdBodyWidth: 500px !global;//body宽度自适应的第三梯度
