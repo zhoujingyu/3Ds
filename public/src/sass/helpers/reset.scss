@@ -1,4 +1,5 @@
 @import "parameters";
+@import "../components/header";
 
 html, body, p, a, ul, li, input {
   margin: 0;
@@ -31,7 +32,7 @@ body {
 body, input, button {
   //font-family: '隶书', 'Microsoft YaHei', serif;
   //font-family: '华文彩云', 'Microsoft YaHei', serif;
-  //font-family: '方正兰亭超细黑简�?', 'Microsoft YaHei', serif;
+  //font-family: '方正兰亭超细黑简�?', 'Microsoft YaHei', serif;
   //font-family: '方正舒体', 'Microsoft YaHei', serif;
   font-family: '华文楷体', '宋体', 'Microsoft YaHei', serif;
 

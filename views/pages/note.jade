@@ -1,0 +1,6 @@
+doctype html
+html(lang="zh-cn")
+    include ../common/layout
+    body
+        include ../components/header
+        != templateRender('views/notes/' + name + '.jade', {})

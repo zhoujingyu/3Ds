@@ -1,4 +1,6 @@
 const connection = require('./server/connection');
+var fs = require('fs');
+var jade = require('jade');
 
 /**
  * 前台页面路由
@@ -12,6 +14,31 @@ module.exports = (app) => {
         res.render('pages/index', {
             title: '首页'
         })
+    });
+
+    /**
+     * 笔记
+     */
+    app.get('/note', (req, res, next)=> {
+        let name = req.query.name;
+        let flag = !!name;
+        name = flag ? name : '笔记';
+
+        if (flag) {
+            fs.readFile('views/notes/' + name + '.jade', 'utf8', (err, data)=> {
+                console.log(err)
+                console.log(data)
+                res.render('pages/note', {
+                    title: name,
+                    name: name,
+                    templateRender: jade.renderFile
+                })
+            });
+        } else {
+            res.render('pages/note', {
+                title: name
+            })
+        }
     });
 
     /**
