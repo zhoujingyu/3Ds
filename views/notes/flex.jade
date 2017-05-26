@@ -2,14 +2,28 @@ h1 flex布局展示
 h2 1、display声明：
 pre.language-css
     code
-        <span class="property">display</span><span class="punctuation">: </span><span class="value">-moz-box</span><span class="punctuation">;</span>
-        <span class="property">display</span><span class="punctuation">: </span><span class="value">-ms-flexbox</span><span class="punctuation">;</span>
-        <span class="property">display</span><span class="punctuation">: </span><span class="value">-webkit-box</span><span class="punctuation">;</span><span class="comment">// 1:一般只兼容这三个</span>
-        <span class="property">display</span><span class="punctuation">: </span><span class="value">-webkit-flex</span><span class="punctuation">;</span><span class="comment">// 2:一般只兼容这三个</span>
-        <span class="property">display</span><span class="punctuation">: </span><span class="value">flex</span><span class="punctuation">;</span><span class="comment">// 3:一般只兼容这三个</span>
+        <span class="property">display</span><span class="punctuation">:</span> <span class="value">-moz-box</span><span class="punctuation">;</span>
+        <span class="property">display</span><span class="punctuation">:</span> <span class="value">-ms-flexbox</span><span class="punctuation">;</span>
+        <span class="property">display</span><span class="punctuation">:</span> <span class="value">-webkit-box</span><span class="punctuation">;</span><span class="comment">// 1:一般只兼容这三个</span>
+        <span class="property">display</span><span class="punctuation">:</span> <span class="value">-webkit-flex</span><span class="punctuation">;</span><span class="comment">// 2:一般只兼容这三个</span>
+        <span class="property">display</span><span class="punctuation">:</span> <span class="value">flex</span><span class="punctuation">;</span><span class="comment">// 3:一般只兼容这三个</span>
 h2 2、定义子元素排列
 p
-    | 目前有两种新的写法
+    | <span>目前有两种写法，新的写法</span>
     b flex-direction
     | 和旧的写法
     b box-orient + box-direction
+pre.language-css
+    code
+        | <span class="property">-moz-box-orient</span><span class="punctuation">:</span> <span class="value">vertical</span><span class="punctuation">;</span>
+        | <span class="property">-moz-box-direction</span><span class="punctuation">:</span> <span class="value">normal</span><span class="punctuation">;</span>
+        | <span class="property">-webkit-box-orient</span><span class="punctuation">:</span> <span class="value">vertical</span><span class="punctuation">;</span><span class="comment">// #####一起#####</span>
+        | <span class="property">-webkit-box-direction</span><span class="punctuation">:</span> <span class="value">normal</span><span class="punctuation">;</span><span class="comment">// ####使用######</span>
+        | <span class="property">-webkit-flex-direction</span><span class="punctuation">:</span> <span class="value">column</span><span class="punctuation">;</span>
+        | <span class="property">flex-direction</span><span class="punctuation">:</span> <span class="value">column</span><span class="punctuation">;</span>
+h3 代码展示⇩
+pre.language-html
+    code
+        | <span class="tag">&lt;div <span class="property">class=</span><span class="value">"tex"</span>&gt;<span class="text"></span>&lt;/div&gt;</span>
+h3 页面效果⇩
+div.

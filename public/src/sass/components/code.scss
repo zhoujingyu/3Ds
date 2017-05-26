@@ -14,6 +14,14 @@ h2 {
   color: #666;
 }
 
+h3 {
+  padding: 8px 0;
+  line-height: 26px;
+  font-size: 20px;
+  font-weight: normal;
+  color: #666;
+}
+
 pre {
   margin: 8px 0;
   padding: 14px;
@@ -25,10 +33,28 @@ pre {
 
   &.language-css {
     .property {
-      color: #0086b3;;
+      color: #0086b3;
     }
     .value {
       color: #63a35c;
+    }
+  }
+
+  &.language-html {
+    .tag {
+      color: #e09123;
+    }
+
+    .property {
+      color: #cccccc;
+    }
+
+    .value {
+      color: #52D486;
+    }
+
+    .text {
+      color: #cccccc;
     }
   }
 

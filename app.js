@@ -15,10 +15,10 @@ routeF(app);
 
 var port = 80;
 
-app.use(function (req, res, next) {
-    console.log(404);
-    res.status(404).send('404');
-});
+//app.use(function (req, res, next) {
+//    console.log(404);
+//    res.status(404).send('404');
+//});
 
 app.listen(port, function () {
     console.log('server running at 127.0.0.1:' + port);

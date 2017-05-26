@@ -1,13 +1,1 @@
-h1,h2{padding:8px 0}
-p,pre code{white-space:pre-wrap;word-wrap:break-word;word-break:break-all}
-main,pre{border-radius:0 0 6px 6px}
-h1{line-height:30px;font-size:24px;color:#333}
-h2{line-height:28px;font-size:22px;font-weight:400;color:#666}
-pre{margin:8px 0;padding:14px;line-height:1.4em;font-size:14px;color:#fff;background-color:rgba(23,24,25,.96)}
-pre.language-css .property{color:#0086b3}
-pre.language-css .value{color:#63a35c}
-pre .punctuation{color:#fff}
-pre .comment{color:#75715e}
-p{line-height:22px;font-size:16px;color:#333}
-b{font-weight:700;text-decoration:underline}
-main{padding:16px;background-color:#fff}
+h1{padding:8px 0;line-height:30px;font-size:24px;color:#333}h2{padding:8px 0;line-height:28px;font-size:22px;font-weight:400;color:#666}h3{padding:8px 0;line-height:26px;font-size:20px;font-weight:400;color:#666}pre{margin:8px 0;padding:14px;line-height:1.4em;font-size:14px;color:#fff;border-radius:0 0 6px 6px;background-color:rgba(23,24,25,.96)}pre.language-css .property{color:#0086b3}pre.language-css .value{color:#63a35c}pre.language-html .tag{color:#e09123}pre.language-html .property{color:#ccc}pre.language-html .value{color:#52d486}pre.language-html .text{color:#ccc}pre code{white-space:pre-wrap;word-wrap:break-word;word-break:break-all}pre .punctuation{color:#fff}pre .comment{color:#75715e}p{line-height:22px;font-size:16px;color:#333;white-space:pre-wrap;word-wrap:break-word;word-break:break-all}b{font-weight:700;text-decoration:underline}main{padding:16px;border-radius:0 0 6px 6px;background-color:#fff;box-shadow:1px 2px 2px rgba(79,79,79,.63)}

@@ -30,4 +30,4 @@ function rename(path,files){
 }
 
 
-getDirs('public/img/刘飞儿/');
+getDirs('public/img//');
