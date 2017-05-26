@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     gulpBabel = require('gulp-babel');
 var webpack = require('webpack'),
     webpackConfig = require('./webpack.config');
-    //extractTextPlugin = require('extract-text-webpack-plugin');
+//extractTextPlugin = require('extract-text-webpack-plugin');
 
 gulp.task('watchSass', function () {
     gulp.watch('./public/src/sass/**', function (event) {

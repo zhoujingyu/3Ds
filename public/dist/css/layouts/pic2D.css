@@ -1,1 +1,10 @@
-@media screen and (max-width:1400px){.pic2D-box .pic2D-padding{width:25%}}@media screen and (max-width:1000px){.pic2D-box .pic2D-padding{width:33.33%}}@media screen and (max-width:750px){.pic2D-box .pic2D-padding{width:50%}}@media screen and (max-width:500px){.pic2D-box{padding:2px}.pic2D-box .pic2D-padding{padding:2px 2px 8px;width:100%}.pic2D-box .pic2D-padding .pic2D-si{border-radius:4px}.pic2D-box .pic2D-padding .pic2D-si img{border-radius:4px}}
+@media screen and (max-width:1400px){.pic2D-box .pic2D-padding{width:25%}
+}
+@media screen and (max-width:1000px){.pic2D-box .pic2D-padding{width:33.33%}
+}
+@media screen and (max-width:750px){.pic2D-box .pic2D-padding{width:50%}
+}
+@media screen and (max-width:500px){.pic2D-box{padding:2px}
+.pic2D-box .pic2D-padding{padding:2px 2px 8px;width:100%}
+.pic2D-box .pic2D-padding .pic2D-si,.pic2D-box .pic2D-padding .pic2D-si img{border-radius:4px}
+}

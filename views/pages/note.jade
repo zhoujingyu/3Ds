@@ -1,6 +1,8 @@
 doctype html
 html(lang="zh-cn")
     include ../common/layout
+    link(rel='stylesheet',href='/dist/css/pages/note.css')
     body
         include ../components/header
-        != templateRender('views/notes/' + name + '.jade', {})
+        main
+            != templateRender('views/notes/' + name + '.jade', {})

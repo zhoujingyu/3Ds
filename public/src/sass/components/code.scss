@@ -1,0 +1,62 @@
+//代码样式
+h1 {
+  padding: 8px 0;
+  line-height: 30px;
+  font-size: 24px;
+  color: #333;
+}
+
+h2 {
+  padding: 8px 0;
+  line-height: 28px;
+  font-size: 22px;
+  font-weight: normal;
+  color: #666;
+}
+
+pre {
+  margin: 8px 0;
+  padding: 14px;
+  line-height: 1.4em;
+  font-size: 14px;
+  color: white;
+  border-radius: 0 0 6px 6px;
+  background-color: rgba(23, 24, 25, 0.96);
+
+  &.language-css {
+    .property {
+      color: #0086b3;;
+    }
+    .value {
+      color: #63a35c;
+    }
+  }
+
+  code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+
+  .punctuation {
+    color: white;
+  }
+
+  .comment {
+    color: #75715e;
+  }
+}
+
+p {
+  line-height: 22px;
+  font-size: 16px;
+  color: #333;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+b {
+  font-weight: bold;
+  text-decoration: underline;
+}

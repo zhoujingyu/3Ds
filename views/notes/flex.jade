@@ -1,1 +1,15 @@
-code fasd
+h1 flex布局展示
+h2 1、display声明：
+pre.language-css
+    code
+        <span class="property">display</span><span class="punctuation">: </span><span class="value">-moz-box</span><span class="punctuation">;</span>
+        <span class="property">display</span><span class="punctuation">: </span><span class="value">-ms-flexbox</span><span class="punctuation">;</span>
+        <span class="property">display</span><span class="punctuation">: </span><span class="value">-webkit-box</span><span class="punctuation">;</span><span class="comment">// 1:一般只兼容这三个</span>
+        <span class="property">display</span><span class="punctuation">: </span><span class="value">-webkit-flex</span><span class="punctuation">;</span><span class="comment">// 2:一般只兼容这三个</span>
+        <span class="property">display</span><span class="punctuation">: </span><span class="value">flex</span><span class="punctuation">;</span><span class="comment">// 3:一般只兼容这三个</span>
+h2 2、定义子元素排列
+p
+    | 目前有两种新的写法
+    b flex-direction
+    | 和旧的写法
+    b box-orient + box-direction
