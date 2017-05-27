@@ -1,13 +1,16 @@
+@import "highlight-css/tomorrow-night";
+@import "../helpers/parameters";
+
 //代码样式
 h1 {
-  padding: 8px 0;
+  margin: 8px 0;
   line-height: 30px;
   font-size: 24px;
   color: #333;
 }
 
 h2 {
-  padding: 8px 0;
+  margin: 8px 0;
   line-height: 28px;
   font-size: 22px;
   font-weight: normal;
@@ -15,7 +18,7 @@ h2 {
 }
 
 h3 {
-  padding: 8px 0;
+  margin: 8px 0;
   line-height: 26px;
   font-size: 20px;
   font-weight: normal;
@@ -86,3 +89,13 @@ b {
   font-weight: bold;
   text-decoration: underline;
 }
+
+p, span, h1, h2, h3, b, pre, code {
+  &::selection,
+  &::-webkit-selection {
+    color: #fff;
+    background: $primary-clr;
+  }
+}
+
+

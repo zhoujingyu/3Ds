@@ -26,8 +26,6 @@ module.exports = (app) => {
 
         if (flag) {
             fs.readFile('views/notes/' + name + '.jade', 'utf8', (err, data)=> {
-                console.log(err)
-                console.log(data)
                 res.render('pages/note', {
                     title: name,
                     name: name,

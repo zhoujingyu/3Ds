@@ -2,7 +2,10 @@ doctype html
 html(lang="zh-cn")
     include ../common/layout
     link(rel='stylesheet',href='/dist/css/pages/note.css')
+    script(src='/lib/highlight.pack.js')
     body
         include ../components/header
         main
             != templateRender('views/notes/' + name + '.jade', {})
+        script.
+            hljs.initHighlightingOnLoad();
