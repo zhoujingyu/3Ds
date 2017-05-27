@@ -10,7 +10,7 @@ h1 {
 }
 
 h2 {
-  margin: 8px 0;
+  margin: 30px 0 8px 0;
   line-height: 28px;
   font-size: 22px;
   font-weight: normal;
@@ -34,45 +34,25 @@ pre {
   border-radius: 0 0 6px 6px;
   background-color: rgba(23, 24, 25, 0.96);
 
-  &.language-css {
-    .property {
-      color: #0086b3;
-    }
-    .value {
-      color: #63a35c;
-    }
-  }
-
-  &.language-html {
-    .tag {
-      color: #e09123;
-    }
-
-    .property {
-      color: #cccccc;
-    }
-
-    .value {
-      color: #52D486;
-    }
-
-    .text {
-      color: #cccccc;
-    }
-  }
-
   code {
     white-space: pre-wrap;
     word-wrap: break-word;
     word-break: break-all;
-  }
 
-  .punctuation {
-    color: white;
-  }
+    &.cols-6 {
+      display: inline-block;
+      box-sizing: border-box;
+      padding: 6px;
+      width: 50%;
+      border-radius: 0 0 6px 6px;
+      vertical-align: top;
+      background-color: #303030;
 
-  .comment {
-    color: #75715e;
+      &.cols-6:not(:nth-last-child(1)) {
+        margin-right: 14px;
+        width: calc(50% - 14px);
+      }
+    }
   }
 }
 

@@ -23,12 +23,151 @@ pre
         | flex-direction: column;
 h3 代码展示⇩
 pre
-    code.html
-        | &lt;div class="tex"&gt;zhoujingyu&lt;/div&gt;
-pre
-    code.javascript
-        | var a = 1;
-        | for (var i = 0; i &lt; a; i++){
-        |   //do something
+    code.cols-6.css
+        | /* 样式 */
+        | &lt;style&gt;
+        | .flex {
+        |   display: -webkit-box;
+        |   display: -webkit-flex;
+        |   display: flex;
+        |   width: 100%;
         | }
+        | .flex_box {
+        |   display: -webkit-box;
+        |   display: -webkit-flex;
+        |   display: flex;
+        |   margin-right: 5px;
+        |   margin-bottom: 5px;
+        |   width: 20%;
+        |   background-color: #2b91af;
+        | }
+        | .flex_item {
+        |   width: 100%;
+        |   height: 100px;
+        |   background-color: #c66;
+        |   color: #fff;
+        |   text-align: center;
+        | }
+        | .flex_item:nth-child(2) {
+        |   background-color: #54db9c;
+        | }
+        | .flex_item:nth-child(3) {
+        |   background-color: #b5bd68;
+        | }
+        | .horizontal-reverse {
+        |   -webkit-box-orient: horizontal;
+        |   -webkit-box-direction: reverse;
+        |   -webkit-flex-direction: row-reverse;
+        |   flex-direction: row-reverse;
+        | }
+        | .vertical{
+        |   -webkit-box-orient: vertical;
+        |   -webkit-box-direction: normal;
+        |   -webkit-flex-direction: column;
+        |   flex-direction: column;
+        | }
+        | .vertical-reverse{
+        |   -webkit-box-orient: vertical;
+        |   -webkit-box-direction: normal;
+        |   -webkit-flex-direction: column;
+        |   flex-direction: column;
+        | }
+        | &lt;/style&gt;
+    code.cols-6.html
+        | &lt;!-- html --&gt;
+        | &lt;div class="flex"&gt;
+        |   &lt;div class="flex_box"&gt;
+        |       &lt;div class="flex_item"&gt;box1 横排&lt;/div&gt;
+        |       &lt;div class="flex_item"&gt;box2 横排&lt;/div&gt;
+        |       &lt;div class="flex_item"&gt;box3 横排&lt;/div&gt;
+        |   &lt;/div&gt;
+        |   &lt;div class="flex_box horizontal-reverse"&gt;
+        |       &lt;div class="flex_item"&gt;box1 横排-颠倒&lt;/div&gt;
+        |       &lt;div class="flex_item"&gt;box2 横排-颠倒&lt;/div&gt;
+        |       &lt;div class="flex_item"&gt;box3 横排-颠倒&lt;/div&gt;
+        |   &lt;/div&gt;
+        |   &lt;div class="flex_box vertical"&gt;
+        |       &lt;div class="flex_item"&gt;box1 垂直&lt;/div&gt;
+        |       &lt;div class="flex_item"&gt;box2 垂直&lt;/div&gt;
+        |       &lt;div class="flex_item"&gt;box3 垂直&lt;/div&gt;
+        |   &lt;/div&gt;
+        |   &lt;div class="flex_box vertical-reverse"&gt;
+        |       &lt;div class="flex_item"&gt;box1 垂直-颠倒&lt;/div&gt;
+        |       &lt;div class="flex_item"&gt;box2 垂直-颠倒&lt;/div&gt;
+        |       &lt;div class="flex_item"&gt;box3 垂直-颠倒&lt;/div&gt;
+        |   &lt;/div&gt;
+        | &lt;/div&gt;
 h3 页面效果⇩
+//定义子元素排列效果代码样式
+style.
+    .flex {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        width: 100%;
+    }
+
+    .flex_box {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        width: 20%;
+        background-color: #2b91af;
+    }
+
+    .flex_item {
+        width: 100%;
+        height: 100px;
+        background-color: #c66;
+        color: #fff;
+        text-align: center;
+    }
+
+    .flex_item:nth-child(2) {
+        background-color: #54db9c;
+    }
+
+    .flex_item:nth-child(3) {
+        background-color: #b5bd68;
+    }
+
+    .horizontal-reverse {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+        -webkit-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+    }
+
+    .vertical {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .vertical-reverse {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+        -webkit-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+    }
+//定义子元素排列效果代码
+div.flex
+    div.flex_box
+        div.flex_item box1 横排
+        div.flex_item box2 横排
+        div.flex_item box3 横排
+    div.flex_box.horizontal-reverse
+        div.flex_item box1 横排-颠倒
+        div.flex_item box2 横排-颠倒
+        div.flex_item box3 横排-颠倒
+    div.flex_box.vertical
+        div.flex_item box1 垂直
+        div.flex_item box2 垂直
+        div.flex_item box3 垂直
+    div.flex_box.vertical-reverse
+        div.flex_item box1 垂直-颠倒
+        div.flex_item box2 垂直-颠倒
+        div.flex_item box3 垂直-颠倒
